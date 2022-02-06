@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace AdventOfCode2015Day03
 {
@@ -21,7 +22,45 @@ namespace AdventOfCode2015Day03
             visitedHouses.Add(santasPosition);
             var numberOfHousesVisited = 0;
             var directions = File.ReadAllLines("c://AdventOfCode2015Day03PussleInput.txt");
-            Console.WriteLine(directions);
+            //Console.WriteLine(directions);
+            string sign = "";
+            for (int positionInDirection = 0; positionInDirection <= directions.Length; positionInDirection++)
+            {
+                try
+                {
+                    sign = Convert.ToString(directions[positionInDirection]);
+                }
+                catch (IndexOutOfRangeException)
+                {
+
+                    throw;
+                }
+                switch (sign)
+                {
+                    case "^":
+                        santasPosition.Yrow++;
+                        break;
+                    case "<":
+                        santasPosition.Xcolumn--;
+                        break;
+                    case ">":
+                        santasPosition.Xcolumn++;
+                        break;
+                    case "v":
+                        santasPosition.Yrow--;
+                        break;
+                    default:
+                        break;
+                }
+
+
+
+                //IEnumerable<Location> haveSantaVisitedThisHouseBefore = from Xcolumn in visitedHouses where visitedHouses.  .Xcolumn.any()
+
+                //var housesInXcoloum = visitedHouses.SingleOrDefault();
+                //var haveSantaVisitedThisHouseBefore = 
+            }
+            //Adress foundAdress = Db.Adresses.SingleOrDefault(i => i.GuestId == searchedGuest.GuestId);
             //var directions = File.currentWorking();
         }
     }
