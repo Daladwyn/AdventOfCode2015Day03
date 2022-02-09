@@ -21,6 +21,7 @@ namespace AdventOfCode2015Day03
             var visitedHouses = new List<Location>();
             visitedHouses.Add(santasPosition);
             var numberOfHousesVisited = 0;
+            var checkLocations = 0;
             var directions = File.ReadAllLines("c://AdventOfCode2015Day03PussleInput.txt");
             //Console.WriteLine(directions);
             string sign = "";
@@ -52,7 +53,19 @@ namespace AdventOfCode2015Day03
                     default:
                         break;
                 }
+                for (int i = 0; i <= visitedHouses.Count; i++)
+                {
+                    if (santasPosition.Yrow == visitedHouses[i].Yrow)
+                    {
+                        if (santasPosition.Xcolumn == visitedHouses[i].Xcolumn)
+                        {
+                            checkLocations++;
+                        }
+                            //numberOfHousesVisited++;
+                    }
 
+                }
+                visitedHouses.Add(santasPosition);
 
 
                 //IEnumerable<Location> haveSantaVisitedThisHouseBefore = from Xcolumn in visitedHouses where visitedHouses.  .Xcolumn.any()
@@ -60,6 +73,9 @@ namespace AdventOfCode2015Day03
                 //var housesInXcoloum = visitedHouses.SingleOrDefault();
                 //var haveSantaVisitedThisHouseBefore = 
             }
+
+            Console.WriteLine("Santa visited")
+
             //Adress foundAdress = Db.Adresses.SingleOrDefault(i => i.GuestId == searchedGuest.GuestId);
             //var directions = File.currentWorking();
         }
